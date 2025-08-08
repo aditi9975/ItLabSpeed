@@ -11,7 +11,7 @@ function getUniqueCategories(products) {
   return [...new Set(products.map(p => p.category))];
 }
 
-// Populate category filter dropdown
+// category filter dropdown
 function updateCategoryFilter(products) {
   const select = document.getElementById('categoryFilter');
   select.innerHTML = '<option value="all">All Categories</option>';

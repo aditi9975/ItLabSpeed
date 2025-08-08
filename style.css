@@ -70,6 +70,7 @@ header {
 	  cursor: pointer;
 
 }
+
 	header::before {
 	  content: '';
 	  position: absolute;
@@ -211,7 +212,7 @@ footer {
 }
 
 
- /* Responsive sidebar styles */
+ /* Responsive sidebar */
     @media (max-width: 991.98px) {
       .sidebar {
         position: fixed;
