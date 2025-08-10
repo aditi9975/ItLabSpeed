@@ -1,0 +1,250 @@
+{
+        "dashboard_summary": {
+          "total_business": 485000,
+          "total_commission": 97000,
+          "currency": "INR",
+          "date_range": "01/01/2024 - 08/09/2025",
+          "generated_date": "2025-08-09"
+        },
+        "franchises": [
+          {
+            "franchise_id": "FR001",
+            "franchise_name": "Franchise A",
+            "booking_amount": 180000,
+            "tests": 220,
+            "samples": 180,
+            "commission": 36000,
+            "currency": "INR",
+            "last_booking_date": "2025-08-05",
+            "join_date": "2024-01-15",
+            "status": "active"
+          },
+          {
+            "franchise_id": "FR002",
+            "franchise_name": "Franchise B",
+            "booking_amount": 150000,
+            "tests": 195,
+            "samples": 165,
+            "commission": 30000,
+            "currency": "INR",
+            "last_booking_date": "2025-05-20",
+            "join_date": "2024-02-20",
+            "status": "active"
+          },
+          {
+            "franchise_id": "FR003",
+            "franchise_name": "Franchise C",
+            "booking_amount": 90000,
+            "tests": 180,
+            "samples": 140,
+            "commission": 18000,
+            "currency": "INR",
+            "last_booking_date": "2024-11-15",
+            "join_date": "2024-03-10",
+            "status": "active"
+          },
+          {
+            "franchise_id": "FR004",
+            "franchise_name": "Franchise D",
+            "booking_amount": 65000,
+            "tests": 165,
+            "samples": 155,
+            "commission": 13000,
+            "currency": "INR",
+            "last_booking_date": "2024-06-25",
+            "join_date": "2024-04-05",
+            "status": "active"
+          }
+        ],
+        "monthly_data": [
+          {
+            "month": "2024-01",
+            "franchise_a": { "booking": 12000, "commission": 2400, "tests": 18, "samples": 15 },
+            "franchise_b": { "booking": 10000, "commission": 2000, "tests": 15, "samples": 12 },
+            "franchise_c": { "booking": 9000, "commission": 1800, "tests": 14, "samples": 11 },
+            "franchise_d": { "booking": 8000, "commission": 1600, "tests": 12, "samples": 10 }
+          },
+          {
+            "month": "2024-02",
+            "franchise_a": { "booking": 13000, "commission": 2600, "tests": 20, "samples": 16 },
+            "franchise_b": { "booking": 11000, "commission": 2200, "tests": 16, "samples": 13 },
+            "franchise_c": { "booking": 9500, "commission": 1900, "tests": 15, "samples": 12 },
+            "franchise_d": { "booking": 8500, "commission": 1700, "tests": 13, "samples": 11 }
+          },
+          {
+            "month": "2024-03",
+            "franchise_a": { "booking": 14000, "commission": 2800, "tests": 22, "samples": 18 },
+            "franchise_b": { "booking": 12000, "commission": 2400, "tests": 18, "samples": 15 },
+            "franchise_c": { "booking": 10000, "commission": 2000, "tests": 16, "samples": 13 },
+            "franchise_d": { "booking": 9000, "commission": 1800, "tests": 14, "samples": 12 }
+          },
+          {
+            "month": "2024-04",
+            "franchise_a": { "booking": 14500, "commission": 2900, "tests": 23, "samples": 19 },
+            "franchise_b": { "booking": 12500, "commission": 2500, "tests": 19, "samples": 16 },
+            "franchise_c": { "booking": 10500, "commission": 2100, "tests": 17, "samples": 14 },
+            "franchise_d": { "booking": 9500, "commission": 1900, "tests": 15, "samples": 13 }
+          },
+          {
+            "month": "2024-05",
+            "franchise_a": { "booking": 15000, "commission": 3000, "tests": 24, "samples": 20 },
+            "franchise_b": { "booking": 13000, "commission": 2600, "tests": 20, "samples": 17 },
+            "franchise_c": { "booking": 11000, "commission": 2200, "tests": 18, "samples": 15 },
+            "franchise_d": { "booking": 10000, "commission": 2000, "tests": 16, "samples": 14 }
+          },
+          {
+            "month": "2024-06",
+            "franchise_a": { "booking": 15500, "commission": 3100, "tests": 25, "samples": 21 },
+            "franchise_b": { "booking": 13500, "commission": 2700, "tests": 21, "samples": 18 },
+            "franchise_c": { "booking": 11500, "commission": 2300, "tests": 19, "samples": 16 },
+            "franchise_d": { "booking": 10500, "commission": 2100, "tests": 17, "samples": 15 }
+          },
+          {
+            "month": "2024-07",
+            "franchise_a": { "booking": 16000, "commission": 3200, "tests": 26, "samples": 22 },
+            "franchise_b": { "booking": 14000, "commission": 2800, "tests": 22, "samples": 19 },
+            "franchise_c": { "booking": 12000, "commission": 2400, "tests": 20, "samples": 17 },
+            "franchise_d": { "booking": 11000, "commission": 2200, "tests": 18, "samples": 16 }
+          },
+          {
+            "month": "2024-08",
+            "franchise_a": { "booking": 16500, "commission": 3300, "tests": 27, "samples": 23 },
+            "franchise_b": { "booking": 14500, "commission": 2900, "tests": 23, "samples": 20 },
+            "franchise_c": { "booking": 12500, "commission": 2500, "tests": 21, "samples": 18 },
+            "franchise_d": { "booking": 11500, "commission": 2300, "tests": 19, "samples": 17 }
+          },
+          {
+            "month": "2024-09",
+            "franchise_a": { "booking": 17000, "commission": 3400, "tests": 28, "samples": 24 },
+            "franchise_b": { "booking": 15000, "commission": 3000, "tests": 24, "samples": 21 },
+            "franchise_c": { "booking": 13000, "commission": 2600, "tests": 22, "samples": 19 },
+            "franchise_d": { "booking": 12000, "commission": 2400, "tests": 20, "samples": 18 }
+          },
+          {
+            "month": "2024-10",
+            "franchise_a": { "booking": 17500, "commission": 3500, "tests": 29, "samples": 25 },
+            "franchise_b": { "booking": 15500, "commission": 3100, "tests": 25, "samples": 22 },
+            "franchise_c": { "booking": 13500, "commission": 2700, "tests": 23, "samples": 20 },
+            "franchise_d": { "booking": 12500, "commission": 2500, "tests": 21, "samples": 19 }
+          },
+          {
+            "month": "2024-11",
+            "franchise_a": { "booking": 18000, "commission": 3600, "tests": 30, "samples": 26 },
+            "franchise_b": { "booking": 16000, "commission": 3200, "tests": 26, "samples": 23 },
+            "franchise_c": { "booking": 14000, "commission": 2800, "tests": 24, "samples": 21 },
+            "franchise_d": { "booking": 13000, "commission": 2600, "tests": 22, "samples": 20 }
+          },
+          {
+            "month": "2024-12",
+            "franchise_a": { "booking": 18500, "commission": 3700, "tests": 31, "samples": 27 },
+            "franchise_b": { "booking": 16500, "commission": 3300, "tests": 27, "samples": 24 },
+            "franchise_c": { "booking": 14500, "commission": 2900, "tests": 25, "samples": 22 },
+            "franchise_d": { "booking": 13500, "commission": 2700, "tests": 23, "samples": 21 }
+          },
+          {
+            "month": "2025-01",
+            "franchise_a": { "booking": 19000, "commission": 3800, "tests": 32, "samples": 28 },
+            "franchise_b": { "booking": 17000, "commission": 3400, "tests": 28, "samples": 25 },
+            "franchise_c": { "booking": 15000, "commission": 3000, "tests": 26, "samples": 23 },
+            "franchise_d": { "booking": 14000, "commission": 2800, "tests": 24, "samples": 22 }
+          },
+          {
+            "month": "2025-02",
+            "franchise_a": { "booking": 19500, "commission": 3900, "tests": 33, "samples": 29 },
+            "franchise_b": { "booking": 17500, "commission": 3500, "tests": 29, "samples": 26 },
+            "franchise_c": { "booking": 15500, "commission": 3100, "tests": 27, "samples": 24 },
+            "franchise_d": { "booking": 14500, "commission": 2900, "tests": 25, "samples": 23 }
+          },
+          {
+            "month": "2025-03",
+            "franchise_a": { "booking": 20000, "commission": 4000, "tests": 34, "samples": 30 },
+            "franchise_b": { "booking": 18000, "commission": 3600, "tests": 30, "samples": 27 },
+            "franchise_c": { "booking": 16000, "commission": 3200, "tests": 28, "samples": 25 },
+            "franchise_d": { "booking": 15000, "commission": 3000, "tests": 26, "samples": 24 }
+          },
+          {
+            "month": "2025-04",
+            "franchise_a": { "booking": 20500, "commission": 4100, "tests": 35, "samples": 31 },
+            "franchise_b": { "booking": 18500, "commission": 3700, "tests": 31, "samples": 28 },
+            "franchise_c": { "booking": 16500, "commission": 3300, "tests": 29, "samples": 26 },
+            "franchise_d": { "booking": 15500, "commission": 3100, "tests": 27, "samples": 25 }
+          },
+          {
+            "month": "2025-05",
+            "franchise_a": { "booking": 21000, "commission": 4200, "tests": 36, "samples": 32 },
+            "franchise_b": { "booking": 19000, "commission": 3800, "tests": 32, "samples": 29 },
+            "franchise_c": { "booking": 17000, "commission": 3400, "tests": 30, "samples": 27 },
+            "franchise_d": { "booking": 16000, "commission": 3200, "tests": 28, "samples": 26 }
+          },
+          {
+            "month": "2025-06",
+            "franchise_a": { "booking": 21500, "commission": 4300, "tests": 37, "samples": 33 },
+            "franchise_b": { "booking": 19500, "commission": 3900, "tests": 33, "samples": 30 },
+            "franchise_c": { "booking": 17500, "commission": 3500, "tests": 31, "samples": 28 },
+            "franchise_d": { "booking": 16500, "commission": 3300, "tests": 29, "samples": 27 }
+          },
+          {
+            "month": "2025-07",
+            "franchise_a": { "booking": 22000, "commission": 4400, "tests": 38, "samples": 34 },
+            "franchise_b": { "booking": 20000, "commission": 4000, "tests": 34, "samples": 31 },
+            "franchise_c": { "booking": 18000, "commission": 3600, "tests": 32, "samples": 29 },
+            "franchise_d": { "booking": 17000, "commission": 3400, "tests": 30, "samples": 28 }
+          },
+          {
+            "month": "2025-08",
+            "franchise_a": { "booking": 22500, "commission": 4500, "tests": 39, "samples": 35 },
+            "franchise_b": { "booking": 20500, "commission": 4100, "tests": 35, "samples": 32 },
+            "franchise_c": { "booking": 18500, "commission": 3700, "tests": 33, "samples": 30 },
+            "franchise_d": { "booking": 17500, "commission": 3500, "tests": 31, "samples": 29 }
+          }
+        ],
+        "performance_metrics": {
+          "commission_rate": 0.20,
+          "average_test_per_franchise": 190,
+          "average_sample_per_franchise": 160,
+          "top_performer": "Franchise A",
+          "growth_rate": "15.5%",
+          "total_tests": 760,
+          "total_samples": 640,
+          "success_rate": "92.5%"
+        },
+        "franchise_locations": [
+          {
+            "franchise_id": "FR001",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "region": "West",
+            "territory_manager": "Rahul Sharma"
+          },
+          {
+            "franchise_id": "FR002", 
+            "city": "Delhi",
+            "state": "Delhi",
+            "region": "North",
+            "territory_manager": "Priya Singh"
+          },
+          {
+            "franchise_id": "FR003",
+            "city": "Bangalore",
+            "state": "Karnataka", 
+            "region": "South",
+            "territory_manager": "Arjun Reddy"
+          },
+          {
+            "franchise_id": "FR004",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "region": "West", 
+            "territory_manager": "Sneha Patel"
+          }
+        ],
+        "metadata": {
+          "total_franchises": 4,
+          "active_franchises": 4,
+          "data_source": "franchise_management_system_v2",
+          "last_updated": "2025-08-09T17:00:00+05:30",
+          "report_generated_by": "dashboard_api",
+          "version": "2.1",
+          "api_endpoint": "/api/v2/franchise-dashboard"
+        }
+      }

@@ -1,168 +1,153 @@
-let allProducts = [];
-let chartInstance = null;
+// Mobile sidebar toggle
+document.querySelector('.navbar-toggler').addEventListener('click', function() {
+  document.querySelector('.sidebar').classList.toggle('show');
+});
 
-// Fetch products from FakeStoreAPI
-async function fetchProducts() {
-  const res = await fetch('https://fakestoreapi.com/products');
-  return await res.json();
-}
+// Franchise data
+const franchiseData = {
+  labels: ['Franchise A', 'Franchise B', 'Franchise C', 'Franchise D'],
+  bookingAmounts: [120000, 90000, 60000, 90000],
+  commissions: [24000, 15000, 12000, 18000],
+};
 
-function getUniqueCategories(products) {
-  return [...new Set(products.map(p => p.category))];
-}
+// Initialize chart
+document.addEventListener('DOMContentLoaded', function() {
 
-// category filter dropdown
-function updateCategoryFilter(products) {
-  const select = document.getElementById('categoryFilter');
-  select.innerHTML = '<option value="all">All Categories</option>';
-  getUniqueCategories(products).forEach(cat => {
-    const opt = document.createElement('option');
-    opt.value = cat;
-    opt.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-    select.appendChild(opt);
-  });
-}
+  const ctx = document.getElementById('franchiseChart').getContext('2d');
 
-function filterProducts(filters) {
-  return allProducts.filter(p =>
-    (filters.category === 'all' || p.category === filters.category) &&
-    (isNaN(filters.priceMin) || p.price >= filters.priceMin) &&
-    (isNaN(filters.priceMax) || p.price <= filters.priceMax) &&
-    (isNaN(filters.ratingMin) || (p.rating && p.rating.rate >= filters.ratingMin)) &&
-    (isNaN(filters.ratingMax) || (p.rating && p.rating.rate <= filters.ratingMax))
-  );
-}
-
-// Update top cards with stats
-function updateCards(products, filteredProducts) {
-  document.getElementById('card-total-products').textContent = filteredProducts.length;
-
-  const avgPrice = filteredProducts.length
-    ? (filteredProducts.reduce((sum, p) => sum + p.price, 0) / filteredProducts.length).toFixed(2)
-    : 0;
-  document.getElementById('card-avg-price').textContent = `$${avgPrice}`;
-
-  const avgRating = filteredProducts.length
-    ? (filteredProducts.reduce((sum, p) => sum + (p.rating ? p.rating.rate : 0), 0) / filteredProducts.length).toFixed(2)
-    : 0;
-  document.getElementById('card-avg-rating').textContent = avgRating;
-
-  document.getElementById('card-total-categories').textContent = getUniqueCategories(products).length;
-}
-
-// Table
-function populateTable(products) {
-  let html = `
-    <thead class="table-light " >
-      <tr>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Price ($)</th>
-        <th>Rating</th>
-      </tr>
-    </thead>
-    <tbody>
-  `;
-  products.forEach(p => {
-    html += `
-      <tr class="fade-in-row">
-        <td>${p.title}</td>
-        <td>${p.category}</td>
-        <td>${p.price.toFixed(2)}</td>
-        <td>${p.rating ? p.rating.rate : '-'}</td>
-      </tr>
-    `;
-  });
-  html += '</tbody>';
-  document.getElementById('products-table').innerHTML = html;
-}
-
-// Chart
-function renderChart(filteredProducts) {
-  const ctx = document.getElementById('priceChart').getContext('2d');
-  if (chartInstance) chartInstance.destroy();
-
-  const categories = getUniqueCategories(filteredProducts);
-  const data = categories.map(cat => {
-    const productsInCat = filteredProducts.filter(p => p.category === cat);
-    return productsInCat.length
-      ? (productsInCat.reduce((sum, p) => sum + p.price, 0) / productsInCat.length).toFixed(2)
-      : 0;
-  });
-
-  chartInstance = new Chart(ctx, {
+  const franchiseChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: categories.map(cat => cat.charAt(0).toUpperCase() + cat.slice(1)),
-      datasets: [{
-        label: 'Average Price',
-        data,
-        backgroundColor: 'rgba(24,119,242,0.65)'
-      }]
+      labels: ['Franchise A', 'Franchise B', 'Franchise C', 'Franchise D'],
+      datasets: [
+        {
+          label: 'Booking Amount',
+          data: [120000, 90000, 60000, 90000],
+          backgroundColor: '#3e59dfe3', // Blue
+          borderRadius: 6
+        },
+        {
+          label: 'Commission',
+          data: [24000, 15000, 12000, 18000],
+          backgroundColor: '#5ad160ff', // Green
+          borderRadius: 6
+        }
+      ]
     },
     options: {
       responsive: true,
-      plugins: { legend: { display: false } },
-      scales: { y: { beginAtZero: true } },
-      animation: { duration: 800, easing: 'easeOutQuart' }
+      plugins: {
+        legend: {
+          position: 'top',
+          align: 'end',
+          labels: {
+            boxWidth: 12,
+            boxHeight: 12,
+            color: '#6c757d',
+            padding: 10
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              let value = context.parsed.y;
+              return '₹' + value.toLocaleString();
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          ticks: {
+            callback: function(value) {
+              return '₹' + value.toLocaleString();
+            }
+          },
+          grid: {
+            color: '#f0f0f0'
+          }, title: {
+            display: true,
+            text: 'Amount (₹)',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          }
+
+        },
+        x: {
+          grid: {
+            display: false
+          },
+           title: {
+            display: true,
+            text: 'Franchise Name',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }}
+        }
+      }
     }
   });
-}
 
-// Apply filter and update UI
-function updateUI(filters) {
-  const filtered = filterProducts(filters);
-  updateCards(allProducts, filtered);
-  renderChart(filtered);
-  populateTable(allProducts); 
-}
-
-// Initialize dashboard
-document.addEventListener('DOMContentLoaded', async () => {
-  allProducts = await fetchProducts();
-  updateCategoryFilter(allProducts);
-
-  updateUI({
-    category: 'all',
-    priceMin: NaN,
-    priceMax: NaN,
-    ratingMin: NaN,
-    ratingMax: NaN,
+  // Filter functionality
+  const applyFilterBtn = document.querySelector('button.btn.w-100'); 
+  const dateFilter = document.getElementById('dateRangeFilter');
+  const franchiseFilter = document.getElementById('franchiseFilter');
+  
+  applyFilterBtn.addEventListener('click', function() {
+    // Show loading state
+    const originalText = applyFilterBtn.innerHTML;
+    applyFilterBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Applying...';
+    applyFilterBtn.disabled = true;
+    
+    setTimeout(() => {
+      // Update chart based on filters
+      const multiplier = getDateMultiplier(dateFilter.value);
+      const franchise = franchiseFilter.value;
+      
+      // Fix value check for 'all'
+      if (franchise.toLowerCase() === "all") {
+        // Update all franchises
+        franchiseChart.data.labels = franchiseData.labels;
+        franchiseChart.data.datasets[0].data = franchiseData.bookingAmounts.map(v => v * multiplier);
+        franchiseChart.data.datasets[1].data = franchiseData.commissions.map(v => v * multiplier);
+        franchiseChart.data.growth = franchiseData.growth;
+      } else {
+        // Filter specific franchise
+        const index = franchiseData.labels.indexOf(franchise);
+        franchiseChart.data.labels = [franchise];
+        franchiseChart.data.datasets[0].data = [franchiseData.bookingAmounts[index] * multiplier];
+        franchiseChart.data.datasets[1].data = [franchiseData.commissions[index] * multiplier];
+        franchiseChart.data.growth = [franchiseData.growth[index]];
+      }
+      
+      franchiseChart.update();
+      
+      // Restore button state
+      applyFilterBtn.innerHTML = originalText;
+      applyFilterBtn.disabled = false;
+    }, 800);
   });
-
-  document.getElementById('filterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const filters = {
-      category: document.getElementById('categoryFilter').value,
-      priceMin: parseFloat(document.getElementById('priceMin').value),
-      priceMax: parseFloat(document.getElementById('priceMax').value),
-      ratingMin: parseFloat(document.getElementById('ratingMin').value),
-      ratingMax: parseFloat(document.getElementById('ratingMax').value),
-    };
-    updateUI(filters);
-  });
-
-  document.querySelectorAll('#dashboard-cards .card').forEach(card => {
-    card.addEventListener('click', function() {
-    document.querySelectorAll('#dashboard-cards .card').forEach(c => c.classList.remove('active-card'));
-    this.classList.add('active-card');
+  
+  // Table row interaction
+  document.querySelectorAll('.franchise-row').forEach(row => {
+    row.addEventListener('click', function() {
+      const franchiseName = this.children[0].textContent.trim();
+      // Set filter and trigger update
+      franchiseFilter.value = franchiseName;
+      applyFilterBtn.click();
     });
   });
+  
+  // Helper function for date multiplier
+  function getDateMultiplier(range) {
+    const multipliers = {
+      'Last 7 Days': 0.25,
+      'Last Month': 1,
+      'Last Quarter': 3
+    };
+    return multipliers[range] || 1;
+  }
 });
-
- // Sidebar toggle for mobile
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarBackdrop = document.querySelector('.sidebar-backdrop');
-    const sidebarToggle = document.getElementById('sidebarToggle');
-    if (sidebarToggle) {
-      sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('show');
-        sidebarBackdrop.classList.toggle('d-none');
-      });
-    }
-    if (sidebarBackdrop) {
-      sidebarBackdrop.addEventListener('click', () => {
-        sidebar.classList.remove('show');
-        sidebarBackdrop.classList.add('d-none');
-      });
-    }
