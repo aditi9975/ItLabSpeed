@@ -62,7 +62,7 @@
             <!-- Card Text -->
             <div>
               <p class="text-muted small mb-1 fw-semibold text-uppercase">Total Business</p>
-              <h3 class="fw-bold mb-1 text-dark">₹2,50,000</h3>
+              <h3 class="fw-bold mb-1 text-dark" id="totalBusiness">--</h3>
             </div>
 
           </div>
@@ -81,7 +81,7 @@
             <!-- Card Text -->
             <div>
               <p class="text-muted small mb-1 fw-semibold text-uppercase">Total Commission</p>
-              <h3 class="fw-bold mb-1 text-dark">₹50,000</h3>
+              <h3 class="fw-bold mb-1 text-dark" id="totalCommission">--</h3>
             </div>
           </div>
         </div>
@@ -102,19 +102,15 @@
             <div class="col-md-5 mb-3">
               <label class="form-label fw-semibold text-muted">Date Range</label>
               <select class="form-select" id="dateRangeFilter">
-                <option value="01/01/2020 - 10/08/2023" selected>07/01/2020 - 10/08/2023</option>
-                <option value="01/01/2024 - 08/09/2025">01/01/2024 - 08/09/2025</option>
+                <option value="01/01/2024 - 31/12/2024" selected>01/01/2024 - 31/12/2024</option>
                 <option value="01/01/2025 - 08/09/2025">01/01/2025 - 08/09/2025</option>
+                <option value="01/01/2024 - 08/09/2025">01/01/2024 - 08/09/2025</option>
               </select>
             </div>
             <div class="col-md-4 mb-3">
               <label class="form-label fw-semibold text-muted">Franchise Filter</label>
               <select class="form-select" id="franchiseFilter">
-                <option value="all" selected>All Franchises</option>
-                <option value="Franchise A">Franchise A</option>
-                <option value="Franchise B">Franchise B</option>
-                <option value="Franchise C">Franchise C</option>
-                <option value="Franchise D">Franchise D</option>
+                <!-- Options will be populated by JS -->
               </select>
             </div>
             <div class="col-md-3 mb-3">
@@ -140,45 +136,18 @@
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
-            <table class="table mb-0 align-middle">
+            <table class="table mb-8 align-middle text-center">
               <thead class="table-light">
                 <tr>
-                  <th class="fw-semibold text-muted px-4 py-3">Franchise Name</th>
-                  <th class="fw-semibold text-muted px-4 py-3">Booking Amount</th>
-                  <th class="fw-semibold text-muted px-4 py-3">Tests</th>
-                  <th class="fw-semibold text-muted px-4 py-3">Samples</th>
-                  <th class="fw-semibold text-muted px-4 py-3">Commission</th>
+                  <th class="fw-semibold text-muted px-4 py-3 text-center">Franchise Name</th>
+                  <th class="fw-semibold text-muted px-4 py-3 text-center">Booking Amount</th>
+                  <th class="fw-semibold text-muted px-4 py-3 text-center">Tests</th>
+                  <th class="fw-semibold text-muted px-4 py-3 text-center">Samples</th>
+                  <th class="fw-semibold text-muted px-4 py-3 text-center">Commission</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="franchise-row">
-                  <td class="px-4 py-3 fw-semibold"><i class="bi bi-shop me-2 text-primary"></i>Franchise A</td>
-                  <td class="px-4 py-3">₹1,20,000</td>
-                  <td class="px-4 py-3">180</td>
-                  <td class="px-4 py-3">100</td>
-                  <td class="px-4 py-3  fw-semibold">₹24,000</td>
-                </tr>
-                <tr class="franchise-row">
-                  <td class="px-4 py-3 fw-semibold"><i class="bi bi-shop me-2 text-primary"></i>Franchise B</td>
-                  <td class="px-4 py-3">₹90,000</td>
-                  <td class="px-4 py-3">100</td>
-                  <td class="px-4 py-3">90</td>
-                  <td class="px-4 py-3  fw-semibold">₹15,000</td>
-                </tr>
-                <tr class="franchise-row">
-                  <td class="px-4 py-3 fw-semibold"><i class="bi bi-shop me-2 text-primary"></i>Franchise C</td>
-                  <td class="px-4 py-3">₹60,000</td>
-                  <td class="px-4 py-3">150</td>
-                  <td class="px-4 py-3">100</td>
-                  <td class="px-4 py-3 fw-semibold">₹12,000</td>
-                </tr>
-                <tr class="franchise-row">
-                  <td class="px-4 py-3 fw-semibold"><i class="bi bi-shop me-2 text-primary"></i>Franchise D</td>
-                  <td class="px-4 py-3">₹90,000</td>
-                  <td class="px-4 py-3">140</td>
-                  <td class="px-4 py-3">130</td>
-                  <td class="px-4 py-3 fw-semibold">₹18,000</td>
-                </tr>
+              <tbody class="franchise-table-body">
+                <!-- Rows will be populated by JS -->
               </tbody>
             </table>
           </div>
